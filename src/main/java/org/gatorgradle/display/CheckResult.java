@@ -1,13 +1,8 @@
 package org.gatorgradle.display;
 
-import java.util.Locale;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.gatorgradle.util.Console;
 import org.gatorgradle.util.StringUtil;
 
 public class CheckResult {
@@ -66,20 +61,20 @@ public class CheckResult {
    * <p>This method assumes the json passed represents only one
    * result, and any duplicates will overwrite values.
    *
-   * @param json the json to parse
+   * @param parsing the json to parse
    * @throws MalformedJsonException if the json given is not valid for a CheckResult
    *
    */
-  public CheckResult(String json) throws MalformedJsonException {
-    if (json == null) {
+  public CheckResult(String parsing) throws MalformedJsonException {
+    if (parsing == null) {
       throw new MalformedJsonException("Null JSON text", null);
     }
     // handle escaped quotes by replacing them with '
-    json = json.replaceAll("\\\\\"", "'").trim();
+    parsing = parsing.replaceAll("\\\\\"", "'").trim();
 
-    Matcher matcher = CHECK_REGEX.matcher(json);
+    Matcher matcher = CHECK_REGEX.matcher(parsing);
     if (!matcher.matches()) {
-      throw new MalformedJsonException("Could not find 'check' key in", json);
+      throw new MalformedJsonException("Could not find 'check' key in", parsing);
     }
     this.check = matcher.group(1);
 
@@ -87,7 +82,7 @@ public class CheckResult {
     matcher.usePattern(OUTCOME_REGEX);
     matcher.reset();
     if (!matcher.matches()) {
-      throw new MalformedJsonException("Could not find 'outcome' key in", json);
+      throw new MalformedJsonException("Could not find 'outcome' key in", parsing);
     }
     this.outcome = Boolean.parseBoolean(matcher.group(1));
 
@@ -95,7 +90,7 @@ public class CheckResult {
     matcher.usePattern(DIAGNOSTIC_REGEX);
     matcher.reset();
     if (!matcher.matches()) {
-      throw new MalformedJsonException("Could not find 'diagnostic' key in", json);
+      throw new MalformedJsonException("Could not find 'diagnostic' key in", parsing);
     }
     this.diagnostic = matcher.group(1);
   }
