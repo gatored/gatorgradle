@@ -307,6 +307,13 @@ public class CommandOutputSummary {
             false,
             "The " + unrec + " check is not supported"
         );
+      } else if (output.contains("--reach")) {
+        result = new CheckResult(
+            cmd,
+            "Contains --reach",
+            true,
+            "this might work"
+          );
       } else {
         if (!includeDiagnostic) {
           log.error("{} errored: \'{}\'", cmd.toString(), ex.getMessage());

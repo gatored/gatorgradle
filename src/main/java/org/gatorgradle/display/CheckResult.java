@@ -31,6 +31,7 @@ public class CheckResult {
   public static final String PASS_SYMBOL_RAW = "\u2714"; // heavy check (✔)
   public static final String FAIL_SYMBOL_RAW = "\u2718"; // heavy cross (✘)
   public static final String FIX_SYMBOL_RAW = "\u2794"; // right arrow (➔)
+  public static final String REACH_SYMBOL_RAW = "\u25CF"; // circle (●)
 
   public static final String PASS_SYMBOL =
       StringUtil.color(StringUtil.GOOD, PASS_SYMBOL_RAW);
@@ -38,6 +39,8 @@ public class CheckResult {
       StringUtil.color(StringUtil.BAD, FAIL_SYMBOL_RAW);
   public static final String FIX_SYMBOL =
       StringUtil.color("\u001B[1;33m", FIX_SYMBOL_RAW);
+  public static final String REACH_SYMBOL =
+      StringUtil.color("\u001B[36m", REACH_SYMBOL_RAW);
 
   public String check;
   public Boolean outcome;
@@ -133,6 +136,8 @@ public class CheckResult {
   public String textReport(boolean includeDiagnostic) {
     if (outcome) {
       return PASS_SYMBOL + INDENT + check;
+    } else if (check.contains("--reach")) {
+      return REACH_SYMBOL + INDENT + check;
     } else {
       String output = FAIL_SYMBOL + INDENT + check;
       if (includeDiagnostic) {
