@@ -1,9 +1,9 @@
 plugins {
     id "maven"
     id "java-gradle-plugin"
-    id "com.gradle.plugin-publish" version "0.10.1"
-    id "com.palantir.git-version" version "0.12.2"
-    id "ru.vyarus.quality" version "4.0.0"
+    id "com.gradle.plugin-publish" version "0.12.0"
+    id "com.palantir.git-version" version "0.12.3"
+    id "ru.vyarus.quality" version "4.4.0"
 }
 
 def calculateVersion() {

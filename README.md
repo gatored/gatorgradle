@@ -3,8 +3,9 @@
 GatorGradle integrates [GatorGrader](https://github.com/GatorEducator/gatorgrader)
 into a Gradle project.
 
-[![Build Status](https://travis-ci.org/GatorEducator/gatorgradle.svg?branch=master)](https://travis-ci.org/GatorEducator/gatorgradle)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8267c156c2874fc39f89effbdfdb8f5b)](https://app.codacy.com/app/GatorEducator/gatorgradle?utm_source=github.com&utm_medium=referral&utm_content=GatorEducator/gatorgradle&utm_campaign=Badge_Grade_Dashboard)
+[![build](https://github.com/GatorEducator/gatorgradle/workflows/build/badge.svg?branch=master)](https://github.com/GatorEducator/gatorgradle/actions?query=workflow%3A%22build%22+branch%3Amaster)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b9a2cb353e5042d0a28a1f0750385f48)](https://www.codacy.com/gh/GatorEducator/gatorgradle/dashboard?utm_source=github.com&utm_medium=referral&utm_content=GatorEducator/gatorgradle&utm_campaign=Badge_Grade)
+[![Known Vulnerabilities](https://snyk.io/test/github/GatorEducator/gatorgradle/badge.svg?targetFile=build.gradle)](https://snyk.io/test/github/GatorEducator/gatorgradle?targetFile=build.gradle)
 [![Javadocs](https://gatoreducator.github.io/gatorgradle/docs/docs-status-badge.svg)](https://gatoreducator.github.io/gatorgradle/docs)
 
 ## Running Checks
